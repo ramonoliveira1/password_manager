@@ -3,9 +3,10 @@ import './Form.css';
 
 type FormProps = {
   cancelFunction: () => void;
+  updateServices: (service: any) => void;
 };
 
-function Form({ cancelFunction }: FormProps) {
+function Form({ cancelFunction, updateServices }: FormProps) {
   const [name, setName] = useState('');
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +20,12 @@ function Form({ cancelFunction }: FormProps) {
 
   const validPasswordClass = 'valid-password-check';
   const invalidPasswordClass = 'invalid-password-check';
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newService = { name, login, password, url };
+    updateServices(newService);
+  };
 
   const validateForm = () => {
     const isNameValid = !!name.trim();
@@ -96,7 +103,12 @@ function Form({ cancelFunction }: FormProps) {
         onChange={ (e) => setUrl(e.target.value) }
       />
 
-      <button disabled={ !isButtonAvailable }>Cadastrar</button>
+      <button
+        onClick={ handleSubmit }
+        disabled={ !isButtonAvailable }
+      >
+        Cadastrar
+      </button>
       <button onClick={ cancelFunction }>Cancelar</button>
     </form>
   );
