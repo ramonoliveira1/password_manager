@@ -69,19 +69,19 @@ function Form({ cancelFunction }: FormProps) {
         </li>
         <li
           className={ !isPasswordLong
-            ? validPasswordClass : validPasswordClass }
+            ? invalidPasswordClass : validPasswordClass }
         >
           Possuir até 16 caracteres
         </li>
         <li
           className={ !passwordContainsNumbersAndLetters
-            ? validPasswordClass : validPasswordClass }
+            ? invalidPasswordClass : validPasswordClass }
         >
           Possuir letras e números
         </li>
         <li
           className={ !passwordContainsSpecialChars
-            ? validPasswordClass : validPasswordClass }
+            ? invalidPasswordClass : validPasswordClass }
         >
           Possuir algum caractere especial
         </li>
