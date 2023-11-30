@@ -17,6 +17,9 @@ function Form({ cancelFunction }: FormProps) {
   const passwordContainsNumbersAndLetters = /[a-zA-Z]/.test(password) && /\d/.test(password);
   const passwordContainsSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
+  const validPasswordClass = 'valid-password-check';
+  const invalidPasswordClass = 'invalid-password-check';
+
   const validateForm = () => {
     const isNameValid = !!name.trim();
     const isLoginValid = !!login.trim();
@@ -60,25 +63,25 @@ function Form({ cancelFunction }: FormProps) {
       <ul>
         <li
           className={ !isPasswordShort
-            ? 'invalid-password-check' : 'valid-password-check' }
+            ? invalidPasswordClass : validPasswordClass }
         >
           Possuir 8 ou mais caracteres
         </li>
         <li
           className={ !isPasswordLong
-            ? 'invalid-password-check' : 'valid-password-check' }
+            ? validPasswordClass : validPasswordClass }
         >
           Possuir até 16 caracteres
         </li>
         <li
           className={ !passwordContainsNumbersAndLetters
-            ? 'invalid-password-check' : 'valid-password-check' }
+            ? validPasswordClass : validPasswordClass }
         >
           Possuir letras e números
         </li>
         <li
           className={ !passwordContainsSpecialChars
-            ? 'invalid-password-check' : 'valid-password-check' }
+            ? validPasswordClass : validPasswordClass }
         >
           Possuir algum caractere especial
         </li>
