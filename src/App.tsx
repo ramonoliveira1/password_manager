@@ -8,11 +8,23 @@ function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [services, setServices] = useState<ServiceData[]>([]);
   const [dontContainPasswords, setDontContainPasswords] = useState(true);
+  const [showPasswords, setShowPasswords] = useState(true);
 
   const addService: any = (service: ServiceData) => {
     setServices([...services, service]);
     setIsFormVisible(false);
     setDontContainPasswords(false);
+  };
+
+  const deleteService = (service: ServiceData) => {
+    const actualServices = services.filter((serviceFound) => service
+      .name !== serviceFound.name);
+    setServices(actualServices);
+    setDontContainPasswords(true);
+  };
+
+  const handleShowPasswordsChange = () => {
+    setShowPasswords((prevShowPasswords) => !prevShowPasswords);
   };
 
   return (
@@ -36,9 +48,22 @@ function App() {
           name={ service.name }
           url={ service.url }
           login={ service.login }
-          password={ service.password }
+          password={ showPasswords ? service.password : '******' }
+          action={ () => deleteService(service) }
         />))}
       </div>
+      {!dontContainPasswords && (
+        <div>
+          <label>
+            Esconder senhas
+            <input
+              type="checkbox"
+              checked={ !showPasswords }
+              onChange={ handleShowPasswordsChange }
+            />
+          </label>
+        </div>
+      )}
 
     </div>
   );
