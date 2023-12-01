@@ -42,7 +42,7 @@ function App() {
       <div>
         { dontContainPasswords && <h3>Nenhuma senha cadastrada</h3> }
       </div>
-      <div>
+      <div className="container-services">
         {services.map((service) => (<Service
           key={ service.name }
           name={ service.name }

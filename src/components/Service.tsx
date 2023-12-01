@@ -8,7 +8,7 @@ type ServiceData = {
 
 function Service({ name, url, login, password, action }: ServiceData) {
   return (
-    <div>
+    <div className="service-card">
       <a href={ url }>{ name }</a>
       <p>{ login }</p>
       <p>{ password }</p>
