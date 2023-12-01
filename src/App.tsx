@@ -57,6 +57,7 @@ function App() {
           <label>
             Esconder senhas
             <input
+              className="input-checkbox"
               type="checkbox"
               checked={ !showPasswords }
               onChange={ handleShowPasswordsChange }

@@ -14,20 +14,42 @@
   padding: 30px;
 }
 
+h3 {
+  margin-top: 30px;
+}
+
 .container-services {
+  display: flex;
+  flex-wrap: wrap;
   height: 300px;
   padding-top: 40px;
 }
 
 .service-card {
+  align-items: center;
   background-color: #323544;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 160px;
+  height: 180px;
   justify-content: center;
+  margin: 10px;
   padding: 0 15px;
   text-align: center;
+  width: 200px;
+}
+
+.trash-icon {
+  background: transparent;
+}
+
+.service-card button {
+  background: transparent;
+  border: none;
+  border-radius: 100px;
+  color: red;
+  text-align: center;
+  width: 57px;
 }
 
 .service-card a, .service-card p {
@@ -43,4 +65,9 @@
 
 .invalid-password-check {
   color: #f58989;
+}
+
+.input-checkbox {
+  margin-left: 5px;
+  width: auto;
 }

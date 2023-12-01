@@ -1,26 +1,68 @@
 form {
+  align-items: center;
+  background-color: #1e2029;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+label {
+  background-color: #1e2029;
+  color: #8d8d8d;
 }
 
 input {
-  background-color: white;
+  background-color: #3b3f50;
+  border: none;
   border-radius: 10px;
-  color: black;
+  color: white;
+  font-size: 18px;
+  height: 53px;
   margin-bottom: 12px;
   padding: 5px;
+  width: 400px;
 }
 
-ul {
-  margin-bottom: 12px;
+.container-password {
+  align-items: center;
+  background-color: #1e2029;
+  display: flex;
 }
 
 button {
-  background-color: white;
-  border-radius: 10px;
-  color: rgb(32, 32, 32);
+  background-color: #3590f5;
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
   margin-top: 10px;
   padding: 15px;
+  width: 300px;
+}
+
+.container-password button {
+  background: transparent;
+  border: none;
+  position: relative;
+  width: auto;
+}
+
+.input-password {
+  align-items: center;
+  background-color: #1e2029;
+  display: flex;
+  flex-direction: column;
+  margin-left: 51px;
+  width: 380px;
+}
+
+ul {
+  border-radius: 20px;
+  margin: 12px 0;
+  padding: 20px 40px;
 }
 
 button:hover {

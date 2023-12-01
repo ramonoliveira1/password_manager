@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Form.css';
+import { EyeFill, EyeSlashFill } from 'react-bootstrap-icons';
 
 type FormProps = {
   cancelFunction: () => void;
@@ -12,6 +13,7 @@ function Form({ cancelFunction, updateServices }: FormProps) {
   const [password, setPassword] = useState('');
   const [url, setUrl] = useState('');
   const [isButtonAvailable, setIsButtonAvailable] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const isPasswordShort = password.length >= 8;
   const isPasswordLong = password.length <= 16;
@@ -57,15 +59,24 @@ function Form({ cancelFunction, updateServices }: FormProps) {
         value={ login }
         onChange={ (e) => { setLogin(e.target.value); validateForm(); } }
       />
-
-      <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={ password }
-        onChange={ (e) => { setPassword(e.target.value); validateForm(); } }
-      />
+      <div className="container-password">
+        <div className="input-password">
+          <label htmlFor="password">Senha</label>
+          <input
+            type={ showPass ? 'text' : 'password' }
+            name="password"
+            id="password"
+            value={ password }
+            onChange={ (e) => { setPassword(e.target.value); validateForm(); } }
+          />
+        </div>
+        <button
+          data-testid="show-hide-form-password"
+          onClick={ () => setShowPass(!showPass) }
+        >
+          { showPass ? (<EyeSlashFill size={ 24 } />) : (<EyeFill size={ 24 } />)}
+        </button>
+      </div>
 
       <ul>
         <li
